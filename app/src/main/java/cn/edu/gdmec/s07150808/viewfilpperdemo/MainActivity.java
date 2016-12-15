@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mActivity=null;
+        mActivity=this;
         viewFlipper = (ViewFlipper) findViewById(R.id.viewFilipper);
         gestureDetector=new GestureDetector(this,this);
         rInAnim= AnimationUtils.loadAnimation(mActivity,R.anim.push_right_in);
@@ -48,11 +48,18 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
 
     @Override
     public boolean onDown(MotionEvent e) {
-        viewFlipper.startFlipping();
+        /*viewFlipper.startFlipping();
+        viewFlipper.setAutoStart(false);
+        return gestureDetector.onTouchEvent(e);*/
+        return false;
+    }
+    @Override
+    public boolean onTouchEvent(MotionEvent e) {
+        viewFlipper.stopFlipping();
         viewFlipper.setAutoStart(false);
         return gestureDetector.onTouchEvent(e);
-    }
 
+    }
     @Override
     public void onShowPress(MotionEvent e) {
 
