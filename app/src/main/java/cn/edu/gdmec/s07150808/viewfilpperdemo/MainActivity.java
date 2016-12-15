@@ -31,9 +31,11 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         rOutAnim=AnimationUtils.loadAnimation(mActivity,R.anim.push_right_out);
         lInAnim=AnimationUtils.loadAnimation(mActivity,R.anim.push_left_in);
         lOutAnim=AnimationUtils.loadAnimation(mActivity,R.anim.push_left_out);
-        /*图片*/
+        /*图片轮播*/
         for(int i=0;i<images.length;i++){
+            /*实例化图片组件*/
             ImageView iv=new ImageView(this);
+            /*获取图片源*/
             iv.setImageResource(images[i]);
             iv.setScaleType(ImageView.ScaleType.FIT_XY);
             viewFlipper.addView(iv,i,new ViewGroup.LayoutParams(
